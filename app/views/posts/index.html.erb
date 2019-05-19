@@ -1,0 +1,30 @@
+
+<h1>HELLO LA FAMILLE</h1>
+
+
+
+<div id="posts_div">
+	<div id="div1">
+	</div>
+</div>
+
+<%= form_tag url_for(action: 'create'), multipart: true, method: "post" do %>
+
+					<div class="form-group">
+						<%= label_tag 'Content', nil, class:"h4 text-info" %>
+						<%= text_area_tag 'content', @content, class: "form-control "  %>
+					</div>
+
+          <div class="form-group">
+						<%= label_tag 'User', nil, class:"h4 text-info" %>
+						<%= text_area_tag 'user', @user, class: "form-control "  %>
+					</div>
+
+					<br>
+					<div class="form-group">
+						<%= submit_tag "Creer", class: 'btn btn-lg btn-warning btn-submit' %>
+					</div>
+
+
+<% end %>
+</div>
