@@ -8,26 +8,33 @@
 // });
 
 console.log("Welcome bro from posts.js!");
-//var posts = gon.posts
+
+
 
 $( document ).ready(function() {
-    getPosts
+
+
+  getPosts;
 });
-// window.setInterval(getPosts,500)
+
+//var scrollDown = function(){
+//   var objDiv = document.getElementById("posts_div");
+//   objDiv.scrollTop = objDiv.scrollHeight;
+// }
+
 var getPosts = function(posts)
 {
-
-  document.getElementById("posts_div").innerHTML = ""
-
+  document.getElementById("posts_div").innerHTML = "";
+  //scrollDown;
   posts.forEach(function(element)
   {
     //$("post_div").html(element.content)
     var newDiv = document.createElement("div");
-    newDiv.innerHTML = element.user+ " dit : "+ element.content
-    document.getElementById("posts_div").appendChild(newDiv)
+    newDiv.innerHTML = element.user+ " dit : "+ element.content;
+    document.getElementById("posts_div").appendChild(newDiv);
+    var objDiv = document.getElementById("posts_div");
+    objDiv.scrollTop = objDiv.scrollHeight;
   })
-
-
 
 }
 gon.watch( "posts" , {interval: 500}, getPosts );
