@@ -12,7 +12,8 @@ console.log("Welcome bro from posts.js!");
 
 
 $( document ).ready(function() {
-  $("#submit_btn").click(function() { $(this).removeAttr('disabled'), console.log("cliked!") });
+  //$("#submit_btn").click(function() { document.getElementById("content-area").value = "" });
+
   getPosts;
 });
 
@@ -33,6 +34,7 @@ var getPosts = function(posts)
     document.getElementById("posts_div").appendChild(newDiv);
     var objDiv = document.getElementById("posts_div");
     objDiv.scrollTop = objDiv.scrollHeight;
+
   })
 
 }

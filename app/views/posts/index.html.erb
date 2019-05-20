@@ -15,7 +15,7 @@
         <div id="title">LA CHATTE-BOX</div>
 
         <div class="message-container">
-          <%= form_tag url_for(action: 'create'), multipart: true, class: "search_form" ,method: "post" do %>
+          <%= form_tag url_for(action: 'create'), multipart: true,id: "main-form" ,class: "search_form" ,method: "post",  :remote => true do %>
 
           <div class="form-group">
             <%= label_tag 'User', nil, class:"h4 text-info" %>
@@ -26,14 +26,14 @@
           <div class="form-group">
             <%= label_tag 'Content', nil, class:"h4 text-info" %>
             <br>
-            <%= text_area_tag 'content', @content, class: "form-control text-message" %>
+            <%= text_area_tag 'content', @content, class: "form-control text-message",  value: "", id: "content-area" %>
           </div>
 
           <br>
 
           <div class="submit-button">
-            <%= submit_tag "Envoyer", id: "submit_btn" ,class: 'inner-btn', :data => { disable_with: false } %>
-            
+            <%= submit_tag "Envoyer", id: "submit_btn" ,class: 'inner-btn'  ,:data => { disable_with: false } %>
+
             <%end%>
           </div>
 
