@@ -12,8 +12,7 @@ console.log("Welcome bro from posts.js!");
 
 
 $( document ).ready(function() {
-
-
+  $("#submit_btn").click(function() { $(this).removeAttr('disabled'), console.log("cliked!") });
   getPosts;
 });
 

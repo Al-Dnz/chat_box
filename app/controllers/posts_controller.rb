@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     params[:user] == "" ? name  = "Anonyme" : name = params[:user]
     @post =  Post.create(user: name.capitalize, content: params[:content])
     cookies[:user_name] = params[:user]
-    redirect_to root_path
+    #redirect_to root_path
   end
 
   def destroy

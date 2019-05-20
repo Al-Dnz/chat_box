@@ -15,7 +15,7 @@
         <div id="title">LA CHATTE-BOX</div>
 
         <div class="message-container">
-          <%= form_tag url_for(action: 'create'), multipart: true, method: "post" do %>
+          <%= form_tag url_for(action: 'create'), multipart: true, class: "search_form" ,method: "post" do %>
 
           <div class="form-group">
             <%= label_tag 'User', nil, class:"h4 text-info" %>
@@ -32,7 +32,8 @@
           <br>
 
           <div class="submit-button">
-            <%= submit_tag "Envoyer", class: 'inner-btn' %>
+            <%= submit_tag "Envoyer", id: "submit_btn" ,class: 'inner-btn', :data => { disable_with: false } %>
+            
             <%end%>
           </div>
 
