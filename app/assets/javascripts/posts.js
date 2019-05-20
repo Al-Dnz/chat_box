@@ -8,20 +8,26 @@
 // });
 
 console.log("Welcome bro from posts.js!");
+//var posts = gon.posts
 
-var posts = gon.posts
-window.setInterval(getPosts,3000)
-function getPosts()
+$( document ).ready(function() {
+    getPosts
+});
+// window.setInterval(getPosts,500)
+var getPosts = function(posts)
 {
+
   document.getElementById("posts_div").innerHTML = ""
+
   posts.forEach(function(element)
   {
     //$("post_div").html(element.content)
     var newDiv = document.createElement("div");
-    newDiv.innerHTML = element.content
+    newDiv.innerHTML = element.user+ " dit : "+ element.content
     document.getElementById("posts_div").appendChild(newDiv)
   })
 
 
 
 }
+gon.watch( "posts" , {interval: 500}, getPosts );
