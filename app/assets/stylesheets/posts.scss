@@ -10,9 +10,9 @@
 #title {
   font-family: 'Anton', sans-serif;
   font-size: 90px;
+  color: #9b4dca
   //position: absolute;
   //right: 100px;
-
 }
 
 
@@ -26,6 +26,7 @@
   border: 10px solid black;
   border-radius: 20px;
   font-family: 'Fjalla One', sans-serif;
+  color: #9b4dca;
 }
 
 .message-container{
@@ -37,6 +38,10 @@
   //position: absolute;
   //right: 100px;
   //top: 200px;
+}
+
+.span-color {
+  color: black;
 }
 
 
