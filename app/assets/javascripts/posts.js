@@ -1,54 +1,67 @@
-// var ajax_index = function(){
-//   $.get("/posts/index",function(data){
-//      $("local_div").html(data.integer);
-//   });
-// }
-// $(function(){
-//   setInterval(ajax_index, 500);
-// });
 
 console.log("Welcome bro from posts.js!");
-
-
+var initialNumberPost = document.getElementsByClassName("single-post").length;
 
 $( document ).ready(function() {
+  getPosts(posts)
   //$("#submit_btn").click(function() { document.getElementById("content-area").value = "" });
-  $("main-form").on("keypress", function (e) {
-    if (e.keyCode == 13) {
-        return false;
-    }
-      });
-  getPosts;
+  // $("main-form").on("keypress", function (e) {
+  //   if (e.keyCode == 13) {
+  //       return false;
+  //   }
+  //     });
+      //scrollToBottom("posts_div")
+
 });
 
-//var scrollDown = function(){
-//   var objDiv = document.getElementById("posts_div");
-//   objDiv.scrollTop = objDiv.scrollHeight;
-// }
 
-var getPosts = function(posts)
-{
-  document.getElementById("posts_div").innerHTML = "";
-  //scrollDown;
-  posts.forEach(function(element)
+
+function getPosts(posts)
   {
-    //$("post_div").html(element.content)
-    var newDiv = document.createElement("div");
-    newDiv.innerHTML = element.user+ " dit : ";
-    var contentSpan = document.createElement("span");
-    contentSpan.innerHTML =  element.content;
-    contentSpan.classList.add("span-color")
-    newDiv.appendChild(contentSpan);
-    document.getElementById("posts_div").appendChild(newDiv);
-    //document.getElementById("posts_div").appendChild(contentSpan);
-    var objDiv = document.getElementById("posts_div");
-    objDiv.scrollTop = objDiv.scrollHeight;
+    document.getElementById("posts_div").innerHTML = "";
+    //scrollDown;
+    posts.forEach(function(element)
+    {
+      //$("post_div").html(element.content)
+      var newDiv = document.createElement("div");
+      newDiv.setAttribute("class","single-post")
+      newDiv.innerHTML = element.user+ " dit : ";
+      var contentSpan = document.createElement("span");
+      contentSpan.innerHTML =  element.content;
+      contentSpan.classList.add("span-color")
+      newDiv.appendChild(contentSpan);
+      document.getElementById("posts_div").appendChild(newDiv);
+      //document.getElementById("posts_div").appendChild(contentSpan);
+      scrollToBottom("posts_div")
+    })
+    initialNumberPost =  document.getElementsByClassName("single-post").length;
+  }
 
-  })
+gon.watch( "posts" , {interval: 500}, postCount );
 
+function postCount(posts)
+  {
+    newPostNumber = posts.length;
+    console.log("newPostNumber-->"+ newPostNumber);
+    console.log("initialNumberPost-->"+ initialNumberPost);
+    if (newPostNumber !== initialNumberPost )
+      {
+        getPosts(posts);
+      }
+  }
+
+
+function scrollToBottom(id)
+{
+   var div = document.getElementById(id);
+   div.scrollTop = div.scrollHeight - div.clientHeight;
+   console.log("hello from scrolling");
 }
-gon.watch( "posts" , {interval: 500}, getPosts );
 
+// var scrollDown = function(){
+  // var objDiv = document.getElementById("posts_div");
+  // objDiv.scrollTop = objDiv.scrollHeight;
+// }
 
 
 // document.getElementById("main-form").addEventListener("keydown", function(e) {

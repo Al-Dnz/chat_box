@@ -19,7 +19,9 @@
 
 #posts_div {
   overflow: scroll;
-  padding: 20px;
+  overflow-x: hidden;
+  padding-left: 15px;
+  padding-bottom: 0px;
   margin-bottom: 10px;
   width: 500px;
   height: 650px;
@@ -27,6 +29,34 @@
   border-radius: 20px;
   font-family: 'Fjalla One', sans-serif;
   color: #9b4dca;
+}
+
+.container {
+  // position: absolute;
+  //  top: 50%;
+  //  -ms-transform: translateY(-50%);
+  //  transform: translateY(-50%);
+  //  left: 50%;
+  //  -ms-transform: translateX(-50%);
+  //  transform: translateX(-50%);
+}
+
+#purge-button {
+  line-height:0.9; /* comportement visuel de cellule */
+  vertical-align: middle;
+display: inline-block;
+padding : 20px;
+  font-family: 'Anton', sans-serif;
+  color: blue ;
+  font-size: 50px;
+  font-weight: bold;
+  margin-top: 15px;
+  height: 100px;
+  //background-color:  #9b4dca;
+  border: 10px solid  black;
+  border-radius: 20px;
+  width: auto;
+
 }
 
 .message-container{

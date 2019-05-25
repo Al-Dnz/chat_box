@@ -1,18 +1,21 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all.order(created_at: :asc)
+    gon.initial_number_post = @posts.count
     gon.watch.posts = @posts
-    @username = "votre nom"
+    @username = ""
     @username = cookies[:user_name].to_s  if cookies[:user_name] != nil
 
   end
 
   def create
     params[:user] == "" ? name  = "Anonyme" : name = params[:user]
-    @post =  Post.create(user: name.capitalize, content: params[:content])
-    cookies[:user_name] = params[:user]
-    respond_to do |format|
-     format.js 
+    if !params[:content].empty?
+      @post =  Post.create(user: name.capitalize, content: params[:content])
+      cookies[:user_name] = params[:user]
+      respond_to do |format|
+       format.js
+      end
     end
     #redirect_to root_path
   end
@@ -22,4 +25,10 @@ class PostsController < ApplicationController
     Post.delete(@post)
     redirect_to root_path
   end
+
+  def destroy_all
+    Post.all.each {|post| Post.delete(post)}
+    redirect_to root_path
+  end
+
 end
