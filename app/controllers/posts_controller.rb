@@ -3,6 +3,7 @@ class PostsController < ApplicationController
     @posts = Post.all.order(created_at: :asc)
     gon.initial_number_post = @posts.count
     gon.watch.posts = @posts
+    gon.posts = @posts
     @username = ""
     @username = cookies[:user_name].to_s  if cookies[:user_name] != nil
 
@@ -30,5 +31,11 @@ class PostsController < ApplicationController
     Post.all.each {|post| Post.delete(post)}
     redirect_to root_path
   end
+
+  # private
+  #
+  # def post_params
+  #   params.fetch(:post, {})
+  # end
 
 end
