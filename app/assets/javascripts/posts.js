@@ -4,10 +4,10 @@ var posts = gon.posts;
 
 $(document).ready(function() {
   getPosts(posts)
+
 });
 
 function getPosts(posts) {
-  pushEnter();
   document.getElementById("posts_div").innerHTML = "";
   //scrollDown;
   posts.forEach(function(element) {
@@ -23,6 +23,7 @@ function getPosts(posts) {
     scrollToBottom("posts_div")
   })
   initialNumberPost = document.getElementsByClassName("single-post").length;
+  pushEnter()
 }
 
 gon.watch("posts", {
@@ -58,4 +59,5 @@ function pushEnter() {
 
 function submitFunction() {
   document.getElementById("submit_btn").click();
+  document.getElementById('content-area').value = '';
 }
