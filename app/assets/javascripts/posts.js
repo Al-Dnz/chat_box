@@ -3,7 +3,7 @@ var initialNumberPost = document.getElementsByClassName("single-post").length;
 var posts = gon.posts;
 
 $(document).ready(function() {
-  getPosts(posts)
+  // getPosts(posts)
 
 });
 
@@ -26,9 +26,9 @@ function getPosts(posts) {
   pushEnter()
 }
 
-gon.watch("posts", {
-  interval: 500
-}, postCount);
+// gon.watch("posts", {
+//   interval: 500
+// }, postCount);
 
 function postCount(posts) {
   newPostNumber = posts.length;

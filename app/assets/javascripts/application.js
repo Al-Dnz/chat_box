@@ -14,7 +14,6 @@
 //= require jquery
 //= require activestorage
 //= require turbolinks
-//= require posts
 //= require_tree .
 
 // var posts = gon.posts
