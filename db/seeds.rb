@@ -2,9 +2,9 @@ require 'faker'
 
 
 10.times do
-  message = Message.new
-  message.content = Faker::TvShows::DrWho.quote
-  message.sender = Faker::TvShows::DrWho.character
-  message.save
-  puts "Message from #{message.sender} created !"
+  post = post.new
+  post.content = Faker::TvShows::DrWho.quote
+  post.user = Faker::TvShows::DrWho.character
+  post.save
+  puts "post from #{post.user} created !"
 end
