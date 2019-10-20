@@ -1,0 +1,10 @@
+<div id="title">THE TCHATBOX</div>
+
+<h3>CONNEXION</h3>
+
+<div class="simple-form">
+  <%=simple_form_for :session , url: sessions_path , method: "post" do |f|%>
+    <%=f.input :username, label: 'Pseudo'%>
+    <%=f.button :submit, 'se connecter'%>
+  <%end%>
+</div>
