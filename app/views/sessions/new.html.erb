@@ -2,9 +2,37 @@
 
 <h3>CONNEXION</h3>
 
-<div class="simple-form">
-  <%=simple_form_for :session , url: sessions_path , method: "post" do |f|%>
-    <%=f.input :username, label: 'Pseudo'%>
-    <%=f.button :submit, 'se connecter'%>
-  <%end%>
-</div>
+
+
+
+
+  <div class="message-container">
+    <%= form_tag url_for(action: 'create'), multipart: true,id: "main-form" ,class: "search_form" ,method: "post" do %>
+    <div class="form-group">
+      <%= label_tag 'Pseudo', nil, class:"h4 text-info" %>
+      <br>
+      <%= text_field_tag 'username', @username, :value => @username, class: "form-control ", placeholder: 'ANONYME' %>
+    </div>
+
+
+    <br>
+
+    <div class="submit-button">
+    <%= submit_tag "Envoyer", id: "submit_btn" ,class: 'inner-btn'   %>
+    <%end%>
+  </div>
+
+
+
+
+
+
+
+
+<!-- REABLE WHEN YOU TRIED WITH CONVENTIONAL FORM -->
+<!-- <div class="simple-form">
+  <%%=simple_form_for :session , url: sessions_path , method: "post" do |f|%>
+    <%%=f.input :username, label: 'Pseudo'%>
+    <%%=f.button :submit, 'se connecter'%>
+  <%%end%>
+</div> -->

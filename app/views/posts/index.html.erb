@@ -21,7 +21,7 @@
 
         <%=render partial: "purge_button" %>
 
-        <div>
+        <div id="logout_button">
           <%= link_to "DECONNEXION", sessions_delete_path %>
         </div>
 
@@ -29,8 +29,8 @@
           <div>
             <b>CONNECTED USERS</b>
           </div>
-          <ul id="connected-users">
-            <%#=render "sessions/index" %>
+          <ul id="connected-users-list" >
+            <%=render partial: "sessions/index" %>
           </ul>
         </div>
 
