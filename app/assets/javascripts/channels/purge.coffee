@@ -14,4 +14,4 @@ App.purge = App.cable.subscriptions.create "PurgeChannel",
 
   purge: ->
    #document.getElementById('posts_div').innerHTML = 'purged !'
-    @perform 'purge', {name: "ramoutcho le pervers"}
+    @perform 'purge'
