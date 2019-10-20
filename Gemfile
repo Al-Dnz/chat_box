@@ -10,6 +10,7 @@ gem 'rabl-rails'
 gem 'milligram'
 gem 'faker'
 gem 'therubyracer'
+gem 'simple_form'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
