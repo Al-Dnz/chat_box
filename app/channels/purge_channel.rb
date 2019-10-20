@@ -7,9 +7,9 @@ class PurgeChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
-  def purge(data)
+  def purge
     Post.destroy_all
-    ActionCable.server.broadcast "purge_channel" , purger: "#{data['name']}"
+    ActionCable.server.broadcast "purge_channel" , purger: "#{current_user}"
 
   end
 end
