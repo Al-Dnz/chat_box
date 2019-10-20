@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  #before_action :check_session
+
   def index
     @posts = Post.all.order(created_at: :asc)
     gon.initial_number_post = @posts.count
@@ -32,10 +34,10 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
-  # private
-  #
-  # def post_params
-  #   params.fetch(:post, {})
-  # end
+  private
+
+  def check_session
+    redirect_to new_session_path if session[:username] = nil
+  end
 
 end
