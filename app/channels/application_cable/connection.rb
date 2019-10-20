@@ -13,8 +13,8 @@ module ApplicationCable
     end
 
     def find_verified_user
-      if session && session['username']
-        session['username']
+      if session && session['token']
+        session['token']
       else
         reject_unauthorized_connection
       end

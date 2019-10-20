@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :check_session, only: [:new, :create]
+  #before_action :check_session, only: [:new, :create]
 
   # def initialize
      @@accumulator = 0
@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
   end
 
   def new
-    Session.delete if session['username']
+    #Session.delete if session['token']
   end
 
   def create
@@ -22,12 +22,13 @@ class SessionsController < ApplicationController
       username = "#{username}##{lastest_indicator}"
     end
     @session.username = username
-    session[:username] = username
+
     random_token = SecureRandom.hex(10)
     until Session.find_by(token: random_token).nil?
       random_token = SecureRandom.hex(10)
     end
     @session.token = random_token
+    session[:token] = @session.token
 
     if @session.save
       flash[:notice] = "You signed up successfully"
@@ -48,11 +49,12 @@ class SessionsController < ApplicationController
   end
 
   def delete
-    current_session_name = session['username']
-    session = Session.find_by(username: current_session_name)
-    Session.delete(session) if session
-    reset_session #if session[:username]
-    ActionCable.server.broadcast 'presence_list', {presence: false, username: current_session_name }
+    current_session_token = session['token']
+    session = Session.find_by(token: current_session_token)
+    current_session_name = session.username
+    Session.delete(session.id) if session
+    reset_session #if session[:token]
+    ActionCable.server.broadcast 'presence_list', {presence: false, username: current_session_name, token: current_session_token }
     #ActionCable.server.remote_connections.where(current_user: current_session_name).disconnect
     redirect_to new_session_path
   end
@@ -60,7 +62,7 @@ class SessionsController < ApplicationController
   private
 
   def check_session
-    redirect_to posts_path if session[:username]
+    redirect_to posts_path if session[:token]
   end
 
   def check_uniqueness(username)

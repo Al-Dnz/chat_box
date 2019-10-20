@@ -1,14 +1,14 @@
 class PostsController < ApplicationController
-  before_action :check_session
+  #before_action :check_session
 
   def index
     @posts = Post.all.order(created_at: :asc)
     @sessions = Session.all
 
-    if session[:username].nil? || Session.find_by(username: session[:username]).nil?
+    if session[:token].nil? || Session.find_by(username: session[:token]).nil?
       redirect_to new_session_path
     else
-      ActionCable.server.broadcast 'presence_list', {presence: true, username: session[:username]}
+      ActionCable.server.broadcast 'presence_list', {presence: true, username: session[:token]}
     end
 
   end
