@@ -37,14 +37,14 @@
   //  transform: translateX(-50%);
 }
 
-#purge-button {
+#purge-button, #logout_button {
   line-height: 0.9;
   /* comportement visuel de cellule */
   vertical-align: middle;
   display: inline-block;
   padding: 20px;
   font-family: 'Anton', sans-serif;
-  color: blue;
+
   font-size: 50px;
   font-weight: bold;
   margin-top: 15px;
@@ -55,9 +55,22 @@
   width: auto;
 }
 
-.message-container {
+// .message-container {
+//   padding: 10px;
+//   width: 510px;
+//   border: 10px solid black;
+//   border-radius: 20px;
+//   font-family: 'Fjalla One', sans-serif;
+//   //position: absolute;
+//   //right: 100px;
+//   //top: 200px;
+// }
+
+
+#message-area {
   padding: 10px;
   width: 510px;
+  height: 125px;
   border: 10px solid black;
   border-radius: 20px;
   font-family: 'Fjalla One', sans-serif;
@@ -81,4 +94,20 @@
 .text-message {
   width: 99%;
   height: 50px;
+}
+
+#user-list{
+  font-family: 'Fjalla One', sans-serif;
+  color: #9b4dca;
+  max-height: 100%;
+  border: 10px solid black;
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 15px;
+}
+
+.connected-user {
+  font-family: 'Anton', sans-serif;
+
+  color: black;
 }
