@@ -8,7 +8,7 @@ class ChatRoomChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    message_in_db = Post.create(user: "POLO" , content: data['message'])
+    message_in_db = Post.create(user: current_user , content: data['message'])
     html = ApplicationController.render(partial: 'posts/message', locals:
       {message: message_in_db}
     )
@@ -19,5 +19,5 @@ class ChatRoomChannel < ApplicationCable::Channel
   def purge
 
   end
-  
+
 end
