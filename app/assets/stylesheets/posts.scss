@@ -1,8 +1,6 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-
 @import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One&display=swap');
 @import "milligram";
@@ -10,18 +8,16 @@
 #title {
   font-family: 'Anton', sans-serif;
   font-size: 90px;
-  color: #9b4dca
-  //position: absolute;
   //right: 100px;
+  //position: absolute;
+  color: #9b4dca;
 }
-
-
 
 #posts_div {
   overflow: scroll;
   overflow-x: hidden;
   padding-left: 15px;
-  padding-bottom: 0px;
+  padding-bottom: 0;
   margin-bottom: 10px;
   width: 500px;
   height: 650px;
@@ -42,24 +38,24 @@
 }
 
 #purge-button {
-  line-height:0.9; /* comportement visuel de cellule */
+  line-height: 0.9;
+  /* comportement visuel de cellule */
   vertical-align: middle;
-display: inline-block;
-padding : 20px;
+  display: inline-block;
+  padding: 20px;
   font-family: 'Anton', sans-serif;
-  color: blue ;
+  color: blue;
   font-size: 50px;
   font-weight: bold;
   margin-top: 15px;
   height: 100px;
   //background-color:  #9b4dca;
-  border: 10px solid  black;
+  border: 10px solid black;
   border-radius: 20px;
   width: auto;
-
 }
 
-.message-container{
+.message-container {
   padding: 10px;
   width: 510px;
   border: 10px solid black;
@@ -74,16 +70,15 @@ padding : 20px;
   color: black;
 }
 
-
-.inner-btn{
+.inner-btn {
   height: 40px;
   font-size: 20px;
   font-family: 'Fjalla One', sans-serif;
   border: 5px solid black;
-  border-radius: 10px;}
+  border-radius: 10px;
+}
 
-.text-message{
+.text-message {
   width: 99%;
   height: 50px;
-
 }
