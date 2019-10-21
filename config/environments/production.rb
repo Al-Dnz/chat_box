@@ -91,4 +91,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Config for websocket
+  config.web_socket_server_url = "wss://the-tchatbox.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://the-tchatbox.herokuapp.com', 'http://the-tchatbox.herokuapp.com']
 end
