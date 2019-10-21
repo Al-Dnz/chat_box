@@ -5,8 +5,9 @@ App.presence = App.cable.subscriptions.create "PresenceChannel",
   disconnected: =>
     @exit
 
-  received: (data) ->
-    if data.presence is true
+  received: (data) =>
+    if data.presence
+      $('#'+data.token).remove()
       li = $ "<li>"
       li.html data.username
       li.attr 'id' , data.token
