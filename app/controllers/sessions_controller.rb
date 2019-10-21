@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  #before_action :check_session, only: [:new, :create]
+  before_action :check_session, only: [:new, :create]
 
   # def initialize
      @@accumulator = 0
@@ -28,9 +28,11 @@ class SessionsController < ApplicationController
       random_token = SecureRandom.hex(10)
     end
     @session.token = random_token
-    session[:token] = @session.token
+
 
     if @session.save
+      session[:token] = @session.token
+      User.create(nickname: @session.username, token: @session.token)
       flash[:notice] = "You signed up successfully"
       flash[:color]= "valid"
       puts "----------------------------------------------------------"
@@ -62,7 +64,7 @@ class SessionsController < ApplicationController
   private
 
   def check_session
-    redirect_to posts_path if session[:token]
+    redirect_to posts_path if session[:token] != nil
   end
 
   def check_uniqueness(username)

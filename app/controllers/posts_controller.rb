@@ -1,16 +1,12 @@
 class PostsController < ApplicationController
-  #before_action :check_session
+  before_action :check_session
 
   def index
     @posts = Post.all.order(created_at: :asc)
     @sessions = Session.all
-
-    if session[:token].nil? || Session.find_by(username: session[:token]).nil?
-      redirect_to new_session_path
-    else
-      ActionCable.server.broadcast 'presence_list', {presence: true, username: session[:token]}
-    end
-
+    token = session['token']
+    session = Session.find_by(token: token)
+    ActionCable.server.broadcast 'presence_list', {presence: true, username: session.username, token: token }
   end
 
   def create
@@ -30,7 +26,11 @@ class PostsController < ApplicationController
   private
 
   def check_session
-    redirect_to new_session_path if !session
+
+    if session[:token].nil? || Session.find_by(token: session[:token]).nil?
+      redirect_to new_session_path
+    end
+
   end
 
 end
