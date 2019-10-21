@@ -32,19 +32,13 @@ class SessionsController < ApplicationController
 
     if @session.save
       session[:token] = @session.token
-      
+      User.create(nickname: @session.username, token: @session.token)
       flash[:notice] = "You signed up successfully"
       flash[:color]= "valid"
-      puts "----------------------------------------------------------"
-      puts  "GOOOD"
-      puts "----------------------------------------------------------"
       redirect_to posts_path
     else
       flash[:notice] = "Form is invalid"
       flash[:color]= "invalid"
-      puts "----------------------------------------------------------"
-      puts "PAS BON !"
-      puts "----------------------------------------------------------"
       redirect_to new_session_path
     end
 
