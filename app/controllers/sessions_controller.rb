@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
 
     if @session.save
       session[:token] = @session.token
-      User.create(nickname: @session.username, token: @session.token)
+      
       flash[:notice] = "You signed up successfully"
       flash[:color]= "valid"
       puts "----------------------------------------------------------"

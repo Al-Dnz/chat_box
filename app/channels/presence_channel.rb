@@ -14,6 +14,7 @@ class PresenceChannel < ApplicationCable::Channel
 
   def get_in(data)
     current_session = Session.find_by(token: current_user_token)
+    User.create(nickname: current_session, token: current_session.token)
     ActionCable.server.broadcast 'presence_list', {presence: true, username: current_session.username, token: current_session.token}
   end
 
