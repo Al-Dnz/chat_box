@@ -45,7 +45,7 @@ class SessionsController < ApplicationController
   end
 
   def delete
-    current_session_token = session['token']
+    current_session_token = session[:token]
     session = Session.find_by(token: current_session_token)
     current_session_name = session.username
     Session.delete(session.id) if session

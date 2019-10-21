@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     @sessions = Session.all
     token = session['token']
     session = Session.find_by(token: token)
-    ActionCable.server.broadcast 'presence_list', {presence: true, username: session.username, token: token }
+    ActionCable.server.broadcast 'presence_list', {presence: true, username: session.username, token: session.token }
   end
 
   def create
