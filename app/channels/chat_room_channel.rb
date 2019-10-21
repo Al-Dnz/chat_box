@@ -8,7 +8,7 @@ class ChatRoomChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    username = Session.find_by(token: current_user).username
+    username = Session.find_by(token: current_user_token).username
     message_in_db = Post.create(user: username , content: data['message'])
     html = ApplicationController.render(partial: 'posts/message', locals:
       {message: message_in_db}

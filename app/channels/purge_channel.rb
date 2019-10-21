@@ -9,7 +9,7 @@ class PurgeChannel < ApplicationCable::Channel
 
   def purge
     Post.destroy_all
-    session = Session.find_by(token: current_user)
+    session = Session.find_by(token: current_user_token)
     ActionCable.server.broadcast "purge_channel" , purger: "#{session.username}"
 
   end
